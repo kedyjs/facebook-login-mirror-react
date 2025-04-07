@@ -6,7 +6,7 @@ interface FacebookLogoProps {
 }
 
 const FacebookLogo: React.FC<FacebookLogoProps> = ({ size = 'large' }) => {
-  const logoClasses = size === 'small' ? 'w-10 h-10' : 'w-72';
+  const logoClasses = size === 'small' ? 'w-16 h-16' : 'w-72';
   
   if (size === 'small') {
     return (
