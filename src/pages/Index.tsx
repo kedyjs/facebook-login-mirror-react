@@ -15,15 +15,15 @@ const Index = () => {
     const newErrors: { email?: string; password?: string } = {};
     
     if (!email) {
-      newErrors.email = 'Email or phone number is required';
+      newErrors.email = 'Email veya telefon numarası gerekli';
     } else if (!isValidEmail(email) && !isValidPhone(email)) {
-      newErrors.email = 'Please enter a valid email or phone number';
+      newErrors.email = 'Lütfen geçerli bir e-posta veya telefon numarası girin';
     }
 
     if (!password) {
-      newErrors.password = 'Password is required';
+      newErrors.password = 'Şifre gerekli';
     } else if (password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
+      newErrors.password = 'Şifre en az 6 karakter olmalıdır';
     }
 
     setErrors(newErrors);
@@ -51,14 +51,14 @@ const Index = () => {
     <form onSubmit={handleSubmit} className="w-full">
       <LoginInput
         type="text"
-        placeholder="Mobile number or email"
+        placeholder={isMobile ? "Cep telefonu numarası veya e-posta" : "Email or phone number"}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         error={errors.email}
       />
       <LoginInput
         type="password"
-        placeholder="Password"
+        placeholder={isMobile ? "Şifre" : "Password"}
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         error={errors.password}
@@ -67,11 +67,11 @@ const Index = () => {
         type="submit"
         className="w-full bg-facebook-blue hover:bg-facebook-hover text-white py-3 px-4 rounded-md font-medium text-center transition duration-200 mb-3"
       >
-        {isMobile ? "Log in" : "Log In"}
+        {isMobile ? "Giriş yap" : "Log In"}
       </button>
       <div className="text-center mb-4">
         <a href="#" className="text-facebook-link text-sm hover:underline">
-          {isMobile ? "Forgot password?" : "Forgotten password?"}
+          {isMobile ? "Şifreni mi unuttun?" : "Forgotten password?"}
         </a>
       </div>
       <div className={`${isMobile ? 'mt-10' : 'border-t border-gray-200 pt-4 mt-2'}`}>
@@ -85,7 +85,7 @@ const Index = () => {
               } mb-3
             `}
           >
-            Create {isMobile ? "new account" : "new account"}
+            {isMobile ? "Yeni hesap oluştur" : "Create new account"}
           </button>
         </div>
       </div>
@@ -120,18 +120,36 @@ const Index = () => {
 
   const renderMobileLayout = () => (
     <div className="min-h-screen flex flex-col bg-[#f0f2f5]">
-      <div className="flex-1 w-full flex flex-col items-center justify-between py-4">
-        <div className="w-full max-w-md flex flex-col items-center justify-center px-4">
-          <div className="flex justify-center mt-10 mb-12">
-            <FacebookLogo size="small" />
-          </div>
-          <div className="w-full mb-10">
+      <div className="flex justify-end p-4">
+        <span className="text-sm text-gray-600">Türkçe</span>
+      </div>
+      <div className="flex-1 w-full flex flex-col items-center px-4 pt-6 pb-4">
+        <div className="flex justify-center mb-10">
+          <FacebookLogo size="small" />
+        </div>
+        
+        <div className="w-full max-w-md flex flex-col space-y-5">
+          <div className="w-full">
             {renderLoginForm()}
           </div>
-          <div className="w-full max-w-md px-4">
-            <div className="flex justify-center mb-16">
-              <MetaLogo />
-            </div>
+          
+          <button 
+            type="button"
+            className="border border-facebook-blue text-facebook-blue py-2.5 px-4 rounded-md font-medium text-center w-full"
+          >
+            Yeni hesap oluştur
+          </button>
+          
+          <div className="flex justify-center mt-2 mb-6">
+            <MetaLogo />
+          </div>
+          
+          <div className="flex justify-center text-xs text-gray-600 space-x-2">
+            <a href="#" className="hover:underline">Hakkımızda</a>
+            <span>·</span>
+            <a href="#" className="hover:underline">Yardım</a>
+            <span>·</span>
+            <a href="#" className="hover:underline">Daha Fazla</a>
           </div>
         </div>
       </div>
