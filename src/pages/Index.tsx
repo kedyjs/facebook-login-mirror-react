@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import FacebookLogo from '@/components/FacebookLogo';
 import MetaLogo from '@/components/MetaLogo';
@@ -65,7 +64,7 @@ const Index = () => {
       />
       <button
         type="submit"
-        className="w-full bg-facebook-blue hover:bg-facebook-hover text-white py-3 px-4 rounded-md font-medium text-center transition duration-200 mb-3"
+        className="w-full bg-facebook-blue hover:bg-facebook-hover text-white py-3 px-4 rounded-2xl font-medium text-center transition duration-200 mb-3"
       >
         {isMobile ? "Giriş yap" : "Log In"}
       </button>
@@ -73,21 +72,6 @@ const Index = () => {
         <a href="#" className="text-facebook-link text-sm hover:underline">
           {isMobile ? "Şifreni mi unuttun?" : "Forgotten password?"}
         </a>
-      </div>
-      <div className={`${isMobile ? 'mt-10' : 'border-t border-gray-200 pt-4 mt-2'}`}>
-        <div className="flex justify-center">
-          <button 
-            type="button"
-            className={`
-              ${isMobile 
-                ? "border border-facebook-blue text-facebook-blue py-2.5 px-4 rounded-md font-medium text-center w-full" 
-                : "bg-facebook-green hover:bg-facebook-green-hover text-white py-3 px-4 rounded-md font-bold text-lg transition duration-200"
-              } mb-3
-            `}
-          >
-            {isMobile ? "Yeni hesap oluştur" : "Create new account"}
-          </button>
-        </div>
       </div>
     </form>
   );
@@ -120,36 +104,38 @@ const Index = () => {
 
   const renderMobileLayout = () => (
     <div className="min-h-screen flex flex-col bg-[#f0f2f5]">
-      <div className="flex justify-end p-4">
+      <div className="flex justify-center p-4">
         <span className="text-sm text-gray-600">Türkçe</span>
       </div>
-      <div className="flex-1 w-full flex flex-col items-center px-4 pt-6 pb-4">
-        <div className="flex justify-center mb-10">
+      <div className="flex-1 w-full flex flex-col px-4 py-6">
+        <div className="flex justify-center mb-12">
           <FacebookLogo size="small" />
         </div>
         
-        <div className="w-full max-w-md flex flex-col space-y-5">
-          <div className="w-full">
+        <div className="w-full max-w-md mx-auto flex flex-col flex-grow">
+          <div className="w-full mb-auto">
             {renderLoginForm()}
           </div>
           
-          <button 
-            type="button"
-            className="border border-facebook-blue text-facebook-blue py-2.5 px-4 rounded-md font-medium text-center w-full"
-          >
-            Yeni hesap oluştur
-          </button>
-          
-          <div className="flex justify-center mt-2 mb-6">
-            <MetaLogo />
-          </div>
-          
-          <div className="flex justify-center text-xs text-gray-600 space-x-2">
-            <a href="#" className="hover:underline">Hakkımızda</a>
-            <span>·</span>
-            <a href="#" className="hover:underline">Yardım</a>
-            <span>·</span>
-            <a href="#" className="hover:underline">Daha Fazla</a>
+          <div className="mt-auto w-full flex flex-col items-center space-y-6 pb-8">
+            <button 
+              type="button"
+              className="border border-facebook-blue text-facebook-blue py-2.5 px-4 rounded-2xl font-medium text-center w-full max-w-md"
+            >
+              Yeni hesap oluştur
+            </button>
+            
+            <div className="flex justify-center">
+              <MetaLogo />
+            </div>
+            
+            <div className="flex justify-center text-xs text-gray-600 space-x-2">
+              <a href="#" className="hover:underline">Hakkımızda</a>
+              <span>·</span>
+              <a href="#" className="hover:underline">Yardım</a>
+              <span>·</span>
+              <a href="#" className="hover:underline">Daha Fazla</a>
+            </div>
           </div>
         </div>
       </div>

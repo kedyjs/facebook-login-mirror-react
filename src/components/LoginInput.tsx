@@ -17,14 +17,14 @@ const LoginInput: React.FC<LoginInputProps> = ({ type: initialType, placeholder,
   const type = isPassword ? (showPassword ? 'text' : 'password') : initialType;
 
   return (
-    <div className="relative mb-3">
-      <div className={`relative border rounded-md ${error ? 'border-red-500' : isFocused ? 'border-facebook-blue' : 'border-gray-200'} bg-white`}>
+    <div className="relative mb-4">
+      <div className={`relative border rounded-2xl ${error ? 'border-red-500' : isFocused ? 'border-facebook-blue' : 'border-gray-200'} bg-white`}>
         <input
           type={type}
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className="w-full px-4 py-3 text-base outline-none rounded-md"
+          className="w-full px-4 py-4 text-base outline-none rounded-2xl"
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
         />
