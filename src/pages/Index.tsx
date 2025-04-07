@@ -121,16 +121,17 @@ const Index = () => {
   const renderMobileLayout = () => (
     <div className="min-h-screen flex flex-col bg-[#f0f2f5]">
       <div className="flex-1 w-full flex flex-col items-center justify-between py-4">
-        <div className="w-full max-w-md flex flex-col items-center justify-center px-4 pt-10 pb-4">
-          <div className="flex justify-center mb-10">
+        <div className="w-full max-w-md flex flex-col items-center justify-center px-4">
+          <div className="flex justify-center mt-10 mb-12">
             <FacebookLogo size="small" />
           </div>
-          {renderLoginForm()}
-        </div>
-        
-        <div className="w-full max-w-md px-4 mb-5">
-          <div className="flex justify-center mt-6">
-            <MetaLogo />
+          <div className="w-full mb-10">
+            {renderLoginForm()}
+          </div>
+          <div className="w-full max-w-md px-4">
+            <div className="flex justify-center mb-16">
+              <MetaLogo />
+            </div>
           </div>
         </div>
       </div>

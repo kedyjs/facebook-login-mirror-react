@@ -18,7 +18,7 @@ const LoginInput: React.FC<LoginInputProps> = ({ type: initialType, placeholder,
 
   return (
     <div className="relative mb-3">
-      <div className={`relative border rounded-md ${error ? 'border-red-500' : isFocused ? 'border-facebook-blue' : 'border-gray-200'}`}>
+      <div className={`relative border rounded-md ${error ? 'border-red-500' : isFocused ? 'border-facebook-blue' : 'border-gray-200'} bg-white`}>
         <input
           type={type}
           placeholder={placeholder}
